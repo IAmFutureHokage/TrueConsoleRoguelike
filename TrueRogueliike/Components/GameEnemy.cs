@@ -1,11 +1,11 @@
-﻿using TrueRogueliike.Core;
+﻿using TrueRogueliike.Core.Interfaces;
 
 namespace TrueRogueliike.Components
 {
     public class GameEnemy : GameObject
     {
         private readonly IGameSceneReader _sceneReader;
-        public int Health { get; set; }
+        public int Health { get; protected set; }
 
         public GameEnemy(char symbol, VectorPosition position, int health, IGameSceneReader sceneReader)
             : base(symbol, position)
@@ -13,7 +13,6 @@ namespace TrueRogueliike.Components
             Health = health;
             _sceneReader = sceneReader;
         }
-
 
         public virtual void Move(VectorPosition direction)
         {
@@ -25,9 +24,13 @@ namespace TrueRogueliike.Components
             }
         }
 
-        public virtual void TakeDamage(int damageAmount)
+        public void TakeDamage(int damageAmount)
         {
             Health -= damageAmount;
+        }
+        public void AddHealth(int damageAmount)
+        {
+            Health += damageAmount;
         }
     }
 }

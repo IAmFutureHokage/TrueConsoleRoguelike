@@ -5,16 +5,18 @@ namespace TrueRogueliike.Core
     public class MazeGenerator
     {
         private readonly GameObjectFactory _factory;
+        private readonly Random _random;
         private readonly int _width, _height;
         private readonly int[,] _maze;
 
-        public MazeGenerator(GameObjectFactory factory, int width, int height)
+        public MazeGenerator(GameObjectFactory factory, int width, int height, Random random)
         {
 
             _factory = factory;
             _width = width;
             _height = height;
             _maze = new int[width, height];
+            _random = random;
         }
 
         public void GenerateMaze()
@@ -37,11 +39,10 @@ namespace TrueRogueliike.Core
             _maze[x, y] = 0;
 
             VectorPosition[] directions = { new VectorPosition(1, 0), new VectorPosition(-1, 0), new VectorPosition(0, 1), new VectorPosition(0, -1) };
-            var random = new Random();
 
             for (int i = 0; i < directions.Length; i++)
             {
-                int swapIndex = random.Next(i, directions.Length);
+                int swapIndex = _random.Next(i, directions.Length);
                 (directions[swapIndex], directions[i]) = (directions[i], directions[swapIndex]);
             }
 
@@ -57,7 +58,6 @@ namespace TrueRogueliike.Core
                     RecursiveBacktrack(x + direction.X * 2, y + direction.Y * 2);
                 }
             }
-
         }
 
         private void EnsureExit()

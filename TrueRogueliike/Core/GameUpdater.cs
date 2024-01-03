@@ -1,4 +1,5 @@
 ﻿using TrueRogueliike.Components;
+using TrueRogueliike.Core.Interfaces;
 
 namespace TrueRogueliike.Core
 {
@@ -15,8 +16,9 @@ namespace TrueRogueliike.Core
         public void Update(ref bool isRunning)
         {
             var toRemove = new List<GameObject>();
+            var gameObjectsCopy = new List<GameObject>(_scene.GameObjects);
 
-            foreach (var gameObject in _scene.GameObjects)
+            foreach (var gameObject in gameObjectsCopy)
             {
                 gameObject.Update();
 
@@ -51,5 +53,4 @@ namespace TrueRogueliike.Core
             }
         }
     }
-
 }

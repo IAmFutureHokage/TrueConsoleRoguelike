@@ -1,4 +1,4 @@
-﻿using TrueRogueliike.Core;
+﻿using TrueRogueliike.Core.Interfaces;
 
 namespace TrueRogueliike.Components
 {
@@ -6,14 +6,11 @@ namespace TrueRogueliike.Components
     {
 
         public Player(char symbol, VectorPosition position, int health, IGameSceneReader sceneReader)
-             : base(symbol, position, health, sceneReader)
-        {
+             : base(symbol, position, health, sceneReader) { }
 
-        }
-
-        public override void Update()
+        public void SetStartPosition()
         {
-            base.Update();
+            Position = new(1, 1);
         }
     }
 }

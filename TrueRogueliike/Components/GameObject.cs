@@ -2,8 +2,8 @@
 {
     public class GameObject
     {
-        public char Symbol { get; set; }
-        public VectorPosition Position { get; set; }
+        public char Symbol { get; protected set; }
+        public VectorPosition Position { get; protected set; }
 
         public GameObject(char symbol, VectorPosition position)
         {
@@ -11,8 +11,6 @@
             Position = position;
         }
 
-        public virtual void Update()
-        {
-        }
+        public virtual void Update() {}
     }
 }

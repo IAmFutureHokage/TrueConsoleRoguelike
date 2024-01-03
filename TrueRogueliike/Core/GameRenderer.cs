@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using TrueRogueliike.Components;
+using TrueRogueliike.Core.Interfaces;
 
 namespace TrueRogueliike.Core
 {
@@ -51,7 +52,7 @@ namespace TrueRogueliike.Core
             lastDisplay = (char[,])display.Clone();
 
             Console.SetCursorPosition(0, scene.Height);
-            Console.Write($"Player Health: {playerHealth}");
+            Console.Write($"Health: {playerHealth}");
         }
     }
 }

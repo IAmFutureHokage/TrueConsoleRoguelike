@@ -28,5 +28,4 @@ namespace TrueRogueliike.Core
             _player.Move(direction);
         }
     }
-
 }

@@ -1,6 +1,6 @@
 ﻿using TrueRogueliike.Components;
 
-namespace TrueRogueliike.Core
+namespace TrueRogueliike.Core.Interfaces
 {
     public interface IGameSceneEditor
     {
