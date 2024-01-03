@@ -1,0 +1,15 @@
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\bin\Debug\net7.0\TrueRogueliike.exe
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\bin\Debug\net7.0\TrueRogueliike.deps.json
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\bin\Debug\net7.0\TrueRogueliike.runtimeconfig.json
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\bin\Debug\net7.0\TrueRogueliike.dll
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\bin\Debug\net7.0\TrueRogueliike.pdb
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.csproj.AssemblyReference.cache
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.AssemblyInfoInputs.cache
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.AssemblyInfo.cs
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.csproj.CoreCompileInputs.cache
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.dll
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\refint\TrueRogueliike.dll
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.pdb
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\TrueRogueliike.genruntimeconfig.cache
+C:\Users\doros\Desktop\TrueRogueliike\TrueRogueliike\obj\Debug\net7.0\ref\TrueRogueliike.dll
