@@ -1,6 +1,6 @@
 ﻿using TrueRogueliike.Components;
 
-namespace TrueRogueliike.Core.Interfaces
+namespace TrueRogueliike.Core
 {
     public interface IGameSceneEditor
     {
@@ -8,7 +8,6 @@ namespace TrueRogueliike.Core.Interfaces
         int Width { get; }
         int Height { get; }
         void Finished();
-        void AddGameObject(GameObject gameObject);
         void RemoveGameObject(GameObject gameObject);
         void Unsubscribe();
     }
