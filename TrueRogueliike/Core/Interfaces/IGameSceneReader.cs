@@ -4,7 +4,7 @@ namespace TrueRogueliike.Core.Interfaces
 {
     public interface IGameSceneReader
     {
-        List<GameObject> GameObjects { get; }
+        IReadOnlyList<GameObject> GameObjects { get; }
         int Width { get; }
         int Height { get; }
         bool IsPositionFree(VectorPosition position);

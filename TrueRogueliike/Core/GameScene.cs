@@ -5,7 +5,8 @@ namespace TrueRogueliike.Core
 {
     public class GameScene : IGameSceneReader, IGameSceneEditor
     {
-        public List<GameObject> GameObjects { get; private set; }
+        private List<GameObject> _gameObjects = new();
+        public IReadOnlyList<GameObject> GameObjects => _gameObjects;
 
         public int Width { get; private set; }
         public int Height { get; private set; }
@@ -17,7 +18,7 @@ namespace TrueRogueliike.Core
         {
             Width = width;
             Height = height;
-            GameObjects = new List<GameObject>(width * height);
+            _gameObjects = new List<GameObject>(width * height);
             _random = random;
             _factory = factory;
 
@@ -28,7 +29,7 @@ namespace TrueRogueliike.Core
 
         private void Init()
         {
-            GameObjects.Clear();
+            _gameObjects.Clear();
 
             MazeGenerator generator = new(_factory, Width, Height, _random);
             MobGenerator generator2 = new(_factory, this, _random);
@@ -39,7 +40,7 @@ namespace TrueRogueliike.Core
 
         public void Finished()
         {
-            var player = GameObjects.OfType<Player>().FirstOrDefault();
+            var player = _gameObjects.OfType<Player>().FirstOrDefault();
             
             Init();
 
@@ -48,7 +49,7 @@ namespace TrueRogueliike.Core
                 player.SetStartPosition();
                 player.AddHealth(10);
 
-                GameObjects.Add(player);
+                _gameObjects.Add(player);
             }
         }
 
@@ -59,7 +60,7 @@ namespace TrueRogueliike.Core
                 throw new InvalidOperationException("Position is already occupied.");
             }
 
-            GameObjects.Add(gameObject);
+            _gameObjects.Add(gameObject);
         }
 
         public void RemoveGameObject(GameObject gameObject)
@@ -69,12 +70,12 @@ namespace TrueRogueliike.Core
                 _factory.UnsubscribeArcher(archer);
             }
 
-            GameObjects.Remove(gameObject);
+            _gameObjects.Remove(gameObject);
         }
 
         public bool IsPositionFree(VectorPosition position)
         {
-            return !GameObjects.Any(gameObject => gameObject.Position.Equals(position));
+            return !_gameObjects.Any(gameObject => gameObject.Position.Equals(position));
         }
 
         public List<GameObject> GetObjectsAround(VectorPosition position)
@@ -90,7 +91,7 @@ namespace TrueRogueliike.Core
             return offsets
                 .Select(offset => position + offset)
                 .Where(pos => pos.X >= 0 && pos.X < Width && pos.Y >= 0 && pos.Y < Height)
-                .SelectMany(pos => GameObjects.Where(obj => obj.Position.Equals(pos)))
+                .SelectMany(pos => _gameObjects.Where(obj => obj.Position.Equals(pos)))
                 .ToList();
         }
 
@@ -112,7 +113,7 @@ namespace TrueRogueliike.Core
 
                 while (currentPosition.X >= 0 && currentPosition.X < Width && currentPosition.Y >= 0 && currentPosition.Y < Height)
                 {
-                    var obj = GameObjects.FirstOrDefault(o => o.Position.Equals(currentPosition));
+                    var obj = _gameObjects.FirstOrDefault(o => o.Position.Equals(currentPosition));
                     if (obj != null)
                     {
                         firstObjects[name] = obj;
@@ -127,14 +128,14 @@ namespace TrueRogueliike.Core
 
         public GameObject? GetObjectAtPosition(VectorPosition position)
         {
-            return GameObjects.FirstOrDefault(obj => obj.Position.Equals(position));
+            return _gameObjects.FirstOrDefault(obj => obj.Position.Equals(position));
         }
 
         public void Unsubscribe()
         {
             _factory.OnGameObjectCreated -= AddGameObject;
 
-            foreach (var archer in GameObjects.OfType<Archer>())
+            foreach (var archer in _gameObjects.OfType<Archer>())
             {
                 _factory.UnsubscribeArcher(archer);
             }

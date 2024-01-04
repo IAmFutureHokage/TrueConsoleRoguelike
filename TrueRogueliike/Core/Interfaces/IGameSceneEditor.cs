@@ -4,7 +4,7 @@ namespace TrueRogueliike.Core
 {
     public interface IGameSceneEditor
     {
-        List<GameObject> GameObjects { get; }
+        IReadOnlyList<GameObject> GameObjects { get; }
         int Width { get; }
         int Height { get; }
         void Finished();
