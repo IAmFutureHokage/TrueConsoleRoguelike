@@ -29,6 +29,7 @@ namespace TrueRogueliike.Core
 
         private void Init()
         {
+            UnsubscribeAllArchers();
             _gameObjects.Clear();
 
             MazeGenerator generator = new(_factory, Width, Height, _random);
@@ -134,11 +135,15 @@ namespace TrueRogueliike.Core
         public void Unsubscribe()
         {
             _factory.OnGameObjectCreated -= AddGameObject;
+            UnsubscribeAllArchers();
+        }
 
+        private void UnsubscribeAllArchers()
+        {
             foreach (var archer in _gameObjects.OfType<Archer>())
             {
                 _factory.UnsubscribeArcher(archer);
             }
-        }
+        } 
     }
 }
