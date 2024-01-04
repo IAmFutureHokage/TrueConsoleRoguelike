@@ -13,14 +13,9 @@ namespace TrueRogueliike.Core
             {
                 gameObject.Update();
 
-                if (gameObject is GameEnemy enemy && enemy.Health < 1)
-                {
-                    scene.RemoveGameObject(enemy);
-                }
-
                 if (gameObject is Player player)
                 {
-                    if (player.Health < 1) 
+                    if (player.Health < 1)
                     {
                         isRunning = false;
                     }
@@ -30,6 +25,12 @@ namespace TrueRogueliike.Core
                         scene.Finished();
                     }
                 }
+
+                if (gameObject is GameEnemy enemy && enemy.Health < 1)
+                {
+                    scene.RemoveGameObject(enemy);
+                }
+
             }
         }
     }

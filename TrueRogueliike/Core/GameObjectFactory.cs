@@ -22,12 +22,11 @@ namespace TrueRogueliike.Core
             OnGameObjectCreated?.Invoke(warrior);
         }
 
-        public Archer CreateArcher(VectorPosition position, IGameSceneReader sceneReader, Random random)
+        public void CreateArcher(VectorPosition position, IGameSceneReader sceneReader, Random random)
         {
             var archer = new Archer('A', position, 80, sceneReader, random);
             archer.OnCreateArrow += CreateArrow;
             OnGameObjectCreated?.Invoke(archer);
-            return archer;
         }
 
         private void CreateArrow(VectorPosition position, VectorPosition direction, IGameSceneReader sceneReader)
