@@ -5,7 +5,7 @@ namespace TrueRogueliike.Core
 {
     public class GameScene : IGameSceneReader, IGameSceneEditor
     {
-        private List<GameObject> _gameObjects = new();
+        private readonly List<GameObject> _gameObjects = new();
         public IReadOnlyList<GameObject> GameObjects => _gameObjects;
 
         public int Width { get; private set; }
@@ -36,7 +36,7 @@ namespace TrueRogueliike.Core
             MobGenerator generator2 = new(_factory, this, _random);
 
             generator.GenerateMaze();
-            generator2.GenerateMobs(5, 5);
+            generator2.GenerateMobs(0, 0);
         }
 
         public void Finished()
